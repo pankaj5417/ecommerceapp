@@ -1,15 +1,15 @@
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+ import { useDispatch, useSelector } from "react-redux";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
  
-//   const navigate = useNavigate();
-//   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  //  const dispatch = useDispatch();
   useEffect(() => {
     getProducts();
   }, []);
@@ -29,9 +29,9 @@ export const Products = () => {
 
   console.log(products);
 
-  // const clickHandler = (id) => {
-  // 	navigate(`/${id}`);
-  // };
+  const clickHandler = (id) => {
+  	navigate(`/${id}`);
+  };
 
   return (
     <Container style={{ paddingTop: "25px" }}>
@@ -57,7 +57,7 @@ export const Products = () => {
                     </Card.Text>
                     <Button
                       variant="success"
-                    //   onClick={() => clickHandler(product._id)}
+                      onClick={() => clickHandler(product.id)}
                     >
                       Know More
                     </Button>
