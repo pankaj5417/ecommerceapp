@@ -8,7 +8,7 @@ export const Cart = () => {
 	let { cartItems, totalItems, totalPrice } = useSelector((state) => state.cart);
 	console.log(JSON.parse(localStorage.getItem('state')));
 
-	console.log(cartItems);
+	console.log("cartItems",cartItems);
 
 	console.log(totalPrice);
 	const dispatch = useDispatch();
@@ -84,13 +84,14 @@ export const Cart = () => {
 	});
 	return (
 		<>
-			<div style={{ width: '100%', textAlign: 'center', marginTop: '40px' }}>
-				<h2>
+        <div style={{  marginTop: '110px !important' }}>
+			<div style={{ width: '100%', textAlign: 'center', marginTop: '110px' }}>
+				<h2 style={{  marginTop: '110px !important' }}>
 					My Cart <span>{`(${totalItems} Items)`}</span>
 				</h2>
 			</div>
 
-			<Container style={{ alignItems: 'center' }}>
+			<Container style={{ alignItems: 'center',marginTop: '110px'  }}>
 				<Row>
 					<ListGroup style={{ width: '50%', marginLeft: '80px', marginTop: '40px' }}>{items}</ListGroup>
 
@@ -104,7 +105,9 @@ export const Cart = () => {
 								<Button
 									variant="primary"
 									style={{ marginTop: '20px' }}
-									onClick={() => navigate('/cart/checkout')}
+									onClick={() => {
+										clearCartHandler()
+										navigate('/cart/checkout')}}
 									disabled={cartItems.length === 0}
 								>
 									Proceed To Checkout
@@ -122,6 +125,7 @@ export const Cart = () => {
 					</Col>
 				</Row>
 			</Container>
+            </div>
 		</>
 	);
 };

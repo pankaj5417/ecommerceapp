@@ -49,7 +49,7 @@ export const SingleProduct = () => {
 				<h2 style={{ paddingLeft: '100px', paddingTop: '40px' }}>Loading.....</h2>
 			) : (
 				<div>
-					<Row style={{ overflowX: 'hidden', maxWidth: '100%', marginTop: '30px' }}>
+					<Row style={{ overflowX: 'hidden', maxWidth: '100%', marginTop: '80px' }}>
 						<Col>
 							<Image
 								src={data.url}
