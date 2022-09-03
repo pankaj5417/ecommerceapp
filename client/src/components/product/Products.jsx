@@ -30,7 +30,7 @@ export const Products = () => {
   console.log(products);
 
   const clickHandler = (id) => {
-  	navigate(`/${id}`);
+  	navigate(`/product/${id}`);
   };
 
   return (

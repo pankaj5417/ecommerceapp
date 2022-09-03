@@ -1,11 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const stateCartItems = JSON.parse(localStorage.getItem('state'))?.cartItems
+	? JSON.parse(localStorage.getItem('state')).cartItems
+	: [];
+const stateTotalPrice = JSON.parse(localStorage.getItem('state'))?.totalPrice
+	? JSON.parse(localStorage.getItem('state')).totalPrice
+	: 0;
+const stateTotalItems = JSON.parse(localStorage.getItem('state'))?.totalItems
+	? JSON.parse(localStorage.getItem('state')).totalItems
+	: 0;
+
 const cartSlice = createSlice({
 	name: 'cart',
 	initialState: {
-		// cartItems: stateCartItems,
-		// totalPrice: stateTotalPrice,
-		// totalItems: stateTotalItems,
+		cartItems: stateCartItems,
+		totalPrice: stateTotalPrice,
+		totalItems: stateTotalItems,
 		
 	},
 	reducers: {
@@ -13,9 +23,9 @@ const cartSlice = createSlice({
 			console.log(action.payload.price);
 			console.log(state);
 
-			if (state.cartItems.findIndex((item) => item._id === action.payload._id) !== -1) {
+			if (state.cartItems.findIndex((item) => item.id === action.payload.id) !== -1) {
 				console.log('hello');
-				const index = state.cartItems.findIndex((item) => item._id === action.payload._id);
+				const index = state.cartItems.findIndex((item) => item.id === action.payload.id);
 				if (state.cartItems[index].countInStock === 0) {
 					return;
 				}
@@ -31,8 +41,8 @@ const cartSlice = createSlice({
 				state.cartItems.push(action.payload);
 				console.log(action.payload.price);
 			}
-			console.log(state.totalPrice);
-			state.totalPrice = Number((state.totalPrice + action.payload.price).toFixed(2));
+			console.log("totalprice",state.totalPrice);
+			state.totalPrice = Number((state.totalPrice + action.payload.price.mrp).toFixed(2));
 			// Number(state.totalPrice).toFixed(2);
 
 			state.totalItems = state.totalItems + 1;
@@ -40,8 +50,8 @@ const cartSlice = createSlice({
 		},
 
 		removeItem(state, action) {
-			const result = state.cartItems.find((item) => item._id === action.payload._id);
-			const resultIndex = state.cartItems.findIndex((item) => item._id === action.payload._id);
+			const result = state.cartItems.find((item) => item.id === action.payload.id);
+			const resultIndex = state.cartItems.findIndex((item) => item.id === action.payload.id);
 			if (result.qty === 1) {
 				state.cartItems[resultIndex].stockInCount--;
 

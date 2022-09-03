@@ -52,7 +52,7 @@ export const SingleProduct = () => {
 					<Row style={{ overflowX: 'hidden', maxWidth: '100%', marginTop: '30px' }}>
 						<Col>
 							<Image
-								src={data.image}
+								src={data.url}
 								rounded
 								fluid
 								style={{ height: '80%', margin: '30px', paddingLeft: '60px' }}
@@ -64,7 +64,7 @@ export const SingleProduct = () => {
 							<h5 style={{ color: 'green', marginTop: '5%' }}>
 								{data.countInStock > 0 ? 'In Stock' : 'Out of Stock'}{' '}
 							</h5>
-							<h4>{`Price - $ ${data.price}`}</h4>
+							<h4>{`Price - $ ${data.price.mrp}`}</h4>
 							{btnToggle ? (
 								<Button
 									variant="primary"

@@ -9,7 +9,7 @@ export const  Header=()=> {
 						<div style={{ display: 'inline-block', paddingRight: '15px' }}>
 							<i class="fas fa-shopping-basket"></i>
 						</div>
-						Shop All
+						
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
@@ -24,7 +24,7 @@ export const  Header=()=> {
 
 							
 								<Nav.Link>
-									<Link to="/customer/account" style={{ textDecoration: 'none', color: 'white' }}>
+									<Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
 										<i class="fas fa-user-circle" style={{marginRight : '5px'}}></i>My Account
 									</Link>
 								</Nav.Link>
