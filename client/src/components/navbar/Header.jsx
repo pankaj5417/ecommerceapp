@@ -27,7 +27,7 @@ export const Header = () => {
 				<div className="d-flex w-25 align-item-center  justify-content-between">
 
               <Nav.Link>
-                <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                <Link to="/account" style={{ textDecoration: "none", color: "white" }}>
                   <i
                     class="fa fa-user-circle"
                     style={{ marginRight: "5px" }}

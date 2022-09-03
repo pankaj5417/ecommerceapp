@@ -1,18 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { cartActions } from '../../redux/CartSlice';
 
 export const OrderSuccess = () => {
-    let { cartItems, totalItems, totalPrice } = useSelector((state) => state.cart);
-	console.log(JSON.parse(localStorage.getItem('state')));
+   
 
-    const dispatch = useDispatch();
 
 	const navigate = useNavigate();
 
-	const clearCartHandler = () => {
-		dispatch(cartActions.clearCart({ cartItems: [], totalItems: 0, totalPrice: 0 }));
-	};
+	
 
     return (
       <>
@@ -22,7 +16,7 @@ export const OrderSuccess = () => {
                   <h1 className='text-center'>Order Confirmation</h1>
                   <div className="bg" style={{margin:"auto"}}>
                   
-                      <div className="card text-center" style={{paddingTop: "66px",margin:"auto"}}>
+                      <div className="card text-center" style={{paddingTop: "66px",margin:"auto",backgroundColor:"lightblue"}}>
                           
                           <span className="card-success"><i className="fa fa-check"></i></span>
                           
@@ -37,7 +31,7 @@ export const OrderSuccess = () => {
                                   
                           </div>
 
-                          <div style={{width:"300px",backgroundColor:"violet",borderRadius:"5px",color:"white",textAlign:"center",margin:"auto",cursor:"pointer"}} onClick={()=>navigate("/")} className="card-msg ">Go To HomePage</div>
+                          <div  style={{width:"300px",height:"40px",backgroundColor:"violet",borderRadius:"5px",color:"white",textAlign:"center",margin:"auto",cursor:"pointer"}} onClick={()=>navigate("/")} className="card-msg ">Go To HomePage</div>
 
 
                           

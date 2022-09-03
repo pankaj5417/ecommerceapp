@@ -84,7 +84,17 @@ export const Cart = () => {
 	});
 	return (
 		<>
-        <div style={{  marginTop: '110px !important' }}>
+		{cartItems.length===0?
+		<>
+		
+		<h1  style={{  marginTop: '110px ',textAlign:"center" }}>Your Cart is Empty</h1>
+		<div style={{margin:"auto",width:"600px"}}>
+		<img style={{margin:"auto",width:"600px"}} src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="" />
+
+		</div>
+		
+		</>:<>
+        <div >
 			<div style={{ width: '100%', textAlign: 'center', marginTop: '110px' }}>
 				<h2 style={{  marginTop: '110px !important' }}>
 					My Cart <span>{`(${totalItems} Items)`}</span>
@@ -104,7 +114,7 @@ export const Cart = () => {
 
 								<Button
 									variant="primary"
-									style={{ marginTop: '20px' }}
+									style={{ marginTop: '20px',width:"200px"  }}
 									onClick={() => {
 										clearCartHandler()
 										navigate('/cart/checkout')}}
@@ -113,8 +123,8 @@ export const Cart = () => {
 									Proceed To Checkout
 								</Button>
 								<Button
-									variant="primary"
-									style={{ marginTop: '20px' }}
+									variant="secondary"
+									style={{ marginTop: '20px',width:"200px" }}
 									onClick={clearCartHandler}
 									disabled={cartItems.length === 0}
 								>
@@ -126,6 +136,8 @@ export const Cart = () => {
 				</Row>
 			</Container>
             </div>
+			</>
+}
 		</>
 	);
 };
