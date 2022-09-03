@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from '../../redux/CartSlice';
 
 
-const Cart = () => {
+export const Cart = () => {
 	let { cartItems, totalItems, totalPrice } = useSelector((state) => state.cart);
 	console.log(JSON.parse(localStorage.getItem('state')));
 
@@ -47,7 +47,7 @@ const Cart = () => {
 							}}
 						>
 							<h3>
-								Price - $<span>{item.price.mrp}</span>
+								Price -₹<span>{item.price.mrp}</span>
 							</h3>
 							<div
 								style={{
@@ -61,15 +61,16 @@ const Cart = () => {
 							>
 								<div>
 									<i
-										class="fas fa-minus-circle"
+										class="fa fa-minus-circle"
 										style={{ color: 'blue', cursor: 'pointer' }}
 										onClick={() => decrementHandler(item)}
 									></i>
 								</div>
 								<p>{item.qty}</p>
 								<div>
+
 									<i
-										class="fas fa-plus-circle"
+										class="fa fa-plus-circle"
 										style={{ color: 'blue', cursor: 'pointer' }}
 										onClick={() => incrementHandler(item)}
 									></i>
@@ -97,7 +98,7 @@ const Cart = () => {
 						<Card style={{ width: '18rem' }}>
 							<Card.Body>
 								<Card.Title>
-									Total Amount - <span>${totalPrice}</span>
+									Total Amount - <span>₹{totalPrice}</span>
 								</Card.Title>
 
 								<Button
@@ -125,4 +126,3 @@ const Cart = () => {
 	);
 };
 
-export default Cart;

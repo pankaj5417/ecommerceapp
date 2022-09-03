@@ -56,7 +56,7 @@ const cartSlice = createSlice({
 				state.cartItems[resultIndex].stockInCount--;
 
 				//result.stockInCount++;
-				state.cartItems = state.cartItems.filter((item) => item._id !== action.payload._id);
+				state.cartItems = state.cartItems.filter((item) => item.id !== action.payload.id);
 
 				//console.log(result);
 			} else {
@@ -65,7 +65,7 @@ const cartSlice = createSlice({
 			}
 
 			state.totalItems--;
-			state.totalPrice = Number((state.totalPrice - result.price).toFixed(2));
+			state.totalPrice = Number((state.totalPrice - result.price.mrp).toFixed(2));
 			localStorage.setItem('state', JSON.stringify(state.cartItems));
 			console.log(JSON.parse(localStorage.getItem('state')).totalItems);
 		},

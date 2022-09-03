@@ -61,10 +61,10 @@ export const SingleProduct = () => {
 						<Col style={{ margin: '30px' }}>
 							<h2>{data.brand}</h2>
 							<p style={{ marginTop: '5%' }}>{data.description}</p>
-							<h5 style={{ color: 'green', marginTop: '5%' }}>
+							{/* <h5 style={{ color: 'green', marginTop: '5%' }}>
 								{data.countInStock > 0 ? 'In Stock' : 'Out of Stock'}{' '}
-							</h5>
-							<h4>{`Price - $ ${data.price.mrp}`}</h4>
+							</h5> */}
+							<h4>{`Price - ₹ ${data.price.mrp}`}</h4>
 							{btnToggle ? (
 								<Button
 									variant="primary"
